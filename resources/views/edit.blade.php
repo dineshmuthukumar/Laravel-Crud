@@ -73,7 +73,7 @@ input[type="file"] {
              
               <input type="file" id="file" name="profile_picture" class="form-control" value='{{URL::asset("uploads/$data->profile_picture")}}' accept="image/png,image/jpg,image/jpeg">
               <div id="preview">
-                <img src='{{URL::asset("uploads/$data->profile_picture")}}' >
+                <img src='{{URL::asset("uploads/$data->profile_picture")}}'  width="200px" height="200px">
                </div>
              <!--  <a href="javascript:changeProfile()">Change</a> |
               <a style="color: red" href="javascript:removeImage()">Remove</a> -->

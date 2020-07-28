@@ -15,11 +15,11 @@ class Userscontroller extends Controller
     {
     	
     	$User = User::latest()->paginate(5);
+
+      
   
-        return view('index',compact('User'))
+      return view('index',compact('User'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
-
-
     	//return view('welcome');
     }
 

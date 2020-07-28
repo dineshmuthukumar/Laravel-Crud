@@ -42,7 +42,7 @@
             <td>{{ $Users->name }}</td>
             <td>{{ $Users->email }}</td>
           <?php  $image  = public_path() . '/uploads/'.$Users->profile_picture; ?>
-            <td>  <img src='{{URL::asset("uploads/$Users->profile_picture")}}' alt="Italian Trulli"> </td>
+            <td>  <img src='{{URL::asset("uploads/$Users->profile_picture")}}' alt="Italian Trulli" width="200px" height="200px"> </td>
             <td>
 
                 <a class="btn btn-primary btn-sm"
