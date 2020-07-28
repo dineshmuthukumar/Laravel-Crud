@@ -46,4 +46,4 @@ Route::delete('api/user', 'apicontroller@delete');///  delete delete
 
 Route::get('api/user/view/{id}', 'apicontroller@view'); 
 
-Route::post('api/user/update1', 'apicontroller@update1');///  delete delete
+Route::post('api/user/update', 'apicontroller@updatenew');///  delete delete

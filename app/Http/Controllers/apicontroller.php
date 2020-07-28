@@ -243,12 +243,72 @@ class apicontroller extends Controller
         # code...
 	  }
 
-	  public  function update1(request $request){
 
-	  	$data  = request::all();
+	   public  function updatenew(request $request){
 
-	  	dd($data);
-	  	die();
+	      $get_result_arr = $request->json()->all();
+
+    	    try {
+      
+
+		       
+		        $User = User::where('email', $get_result_arr['email'])->first();
+
+		        if(empty($User)){
+
+		        	     $User = new User();
+		        // $User->password = bcrypt
+		        	    $User->name = $get_result_arr['name'];
+				        $User->email = $get_result_arr['email'];
+
+
+				      
+				         //$User->type = $request->type;
+				         //$User->email = $request->email;
+
+				        $User->profile_picture = '';
+
+				        
+				        $User->phone = $get_result_arr['phone'];
+				        $User->password = md5($get_result_arr['password']);
+
+				
+				        $User->save();
+
+
+				         return response()->json([
+				        	'response'=>true,
+				        	'code'=>200,
+				            'status' => 'success',
+				            'msg'    => 'User update successfully'
+				        ], 200);
+				       
+
+		        } else {
+
+		        	  return response()->json([
+				        	'response'=>false,
+				        	'code'=>200,
+				            'status' => 'fail',
+				            'msg'    => 'email alrready exist'
+				        ], 200);
+		        }
+
+		      
+
+		    }
+		    catch (\Exception $exception) {
+
+		        return response()->json([
+		        	'response'=>false,
+		            'code'=>422,
+		            'msg'    =>  $exception->getMessage(),
+		            'errors' => $exception->errors(),
+		        ], 422);
+
+
+		    }
+
 	  }
-    //
+    
 }
